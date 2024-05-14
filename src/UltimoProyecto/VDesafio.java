@@ -18,6 +18,7 @@ import javax.swing.JLabel;
 import javax.swing.JSpinner;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
+import java.awt.Font;
 
 public class VDesafio extends JFrame {
 
@@ -43,55 +44,55 @@ public class VDesafio extends JFrame {
 		contentPane.setLayout(null);
 		
 		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(242, 111, 216, 66);
+		comboBox.setBounds(242, 158, 216, 66);
 		contentPane.add(comboBox);
 		
 		textField = new JTextField();
-		textField.setBounds(242, 44, 216, 46);
+		textField.setBounds(242, 91, 216, 46);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
 		textField_1 = new JTextField();
 		textField_1.setColumns(10);
-		textField_1.setBounds(242, 198, 216, 46);
+		textField_1.setBounds(242, 245, 216, 46);
 		contentPane.add(textField_1);
 		
 		textField_2 = new JTextField();
 		textField_2.setColumns(10);
-		textField_2.setBounds(76, 375, 57, 46);
+		textField_2.setBounds(76, 422, 57, 46);
 		contentPane.add(textField_2);
 		
 		JLabel lblNewLabel = new JLabel("Buscador");
-		lblNewLabel.setBounds(147, 43, 85, 46);
+		lblNewLabel.setBounds(147, 90, 85, 46);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Elige la criatura");
-		lblNewLabel_1.setBounds(147, 121, 85, 46);
+		lblNewLabel_1.setBounds(147, 168, 85, 46);
 		contentPane.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("Puntos de vida");
-		lblNewLabel_2.setBounds(147, 197, 85, 46);
+		lblNewLabel_2.setBounds(147, 244, 85, 46);
 		contentPane.add(lblNewLabel_2);
 		
 		textField_3 = new JTextField();
-		textField_3.setBounds(468, 198, 67, 46);
+		textField_3.setBounds(468, 245, 67, 46);
 		contentPane.add(textField_3);
 		textField_3.setColumns(10);
 		
 		JTextArea textArea = new JTextArea();
-		textArea.setBounds(242, 322, 216, 158);
+		textArea.setBounds(242, 345, 216, 158);
 		contentPane.add(textArea);
 		
 		JButton btnNewButton = new JButton("New button");
-		btnNewButton.setBounds(468, 44, 46, 46);
+		btnNewButton.setBounds(468, 91, 46, 46);
 		contentPane.add(btnNewButton);
 		
 		JLabel lblNewLabel_3 = new JLabel("Valor de desafío");
-		lblNewLabel_3.setBounds(70, 333, 74, 32);
+		lblNewLabel_3.setBounds(70, 380, 74, 32);
 		contentPane.add(lblNewLabel_3);
 		
 		JLabel lblNewLabel_4 = new JLabel("Ataques");
-		lblNewLabel_4.setBounds(322, 268, 46, 32);
+		lblNewLabel_4.setBounds(322, 315, 46, 32);
 		contentPane.add(lblNewLabel_4);
 		
 		JButton btnNewButton_1 = new JButton("Atrás");
@@ -99,7 +100,16 @@ public class VDesafio extends JFrame {
 		contentPane.add(btnNewButton_1);
 		
 		JLabel lblNewLabel_5 = new JLabel("Total");
-		lblNewLabel_5.setBounds(486, 162, 35, 32);
+		lblNewLabel_5.setBounds(486, 209, 35, 32);
 		contentPane.add(lblNewLabel_5);
+		
+		JLabel lblNewLabel_6 = new JLabel("Genera el valor del desafío");
+		lblNewLabel_6.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblNewLabel_6.setBounds(229, 10, 256, 46);
+		contentPane.add(lblNewLabel_6);
+		
+		JButton btnNewButton_2 = new JButton("Guardar criatura");
+		btnNewButton_2.setBounds(468, 396, 128, 46);
+		contentPane.add(btnNewButton_2);
 	}
 }
