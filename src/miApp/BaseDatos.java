@@ -16,7 +16,7 @@ public class BaseDatos {
 	public BaseDatos() {
 		
 		try {
-			conn = DriverManager.getConnection("jdbc:mariadb://localhost:3306/ceinmark",
+			conn = DriverManager.getConnection("jdbc:mariadb://localhost:3306/b&b",
 					"root",
 					"");
 		} catch (SQLException ex) {
