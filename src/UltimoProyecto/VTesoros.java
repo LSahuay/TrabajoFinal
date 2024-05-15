@@ -79,10 +79,6 @@ public class VTesoros extends JFrame {
 		btnNewButton_1.setBounds(86, 279, 99, 47);
 		contentPane.add(btnNewButton_1);
 
-		JList listBotin = new JList();
-		listBotin.setBounds(621, 156, 309, 202);
-		contentPane.add(listBotin);
-
 		JLabel lblNewLabel = new JLabel("Objetos disponibles");
 		lblNewLabel.setFont(new Font("Arial", Font.PLAIN, 15));
 		lblNewLabel.setBounds(361, 113, 147, 29);
@@ -124,5 +120,8 @@ public class VTesoros extends JFrame {
 				scrollPaneBotin.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
 				scrollPaneBotin.setBounds(621, 156, 309, 202);
 				contentPane.add(scrollPaneBotin);
+				
+						JList listBotin = new JList();
+						scrollPaneBotin.setViewportView(listBotin);
 	}
 }
