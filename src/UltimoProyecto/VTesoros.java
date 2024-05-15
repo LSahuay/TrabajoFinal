@@ -16,6 +16,10 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JScrollPane;
+import javax.swing.border.SoftBevelBorder;
+import javax.swing.border.BevelBorder;
+import javax.swing.ScrollPaneConstants;
 
 public class VTesoros extends JFrame {
 
@@ -75,25 +79,9 @@ public class VTesoros extends JFrame {
 		btnNewButton_1.setBounds(86, 279, 99, 47);
 		contentPane.add(btnNewButton_1);
 
-		JList listDisponibles = new JList();
-		listDisponibles.setBounds(275, 156, 309, 202);
-		contentPane.add(listDisponibles);
-
-		JScrollBar scrollBar = new JScrollBar();
-		scrollBar.setForeground(new Color(0, 128, 0));
-		scrollBar.setBackground(new Color(0, 128, 0));
-		scrollBar.setBounds(594, 156, 17, 200);
-		contentPane.add(scrollBar);
-
 		JList listBotin = new JList();
 		listBotin.setBounds(621, 156, 309, 202);
 		contentPane.add(listBotin);
-
-		JScrollBar scrollBar_1 = new JScrollBar();
-		scrollBar_1.setForeground(new Color(0, 128, 0));
-		scrollBar_1.setBackground(new Color(0, 128, 0));
-		scrollBar_1.setBounds(926, 158, 17, 200);
-		contentPane.add(scrollBar_1);
 
 		JLabel lblNewLabel = new JLabel("Objetos disponibles");
 		lblNewLabel.setFont(new Font("Arial", Font.PLAIN, 15));
@@ -118,5 +106,23 @@ public class VTesoros extends JFrame {
 		textField_1.setBounds(718, 372, 99, 39);
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
+		
+		JScrollPane scrollPaneDisp = new JScrollPane();
+		scrollPaneDisp.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+		scrollPaneDisp.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		scrollPaneDisp.setViewportBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		scrollPaneDisp.setBounds(273, 154, 311, 204);
+		
+		
+				JList listDisponibles = new JList();
+				scrollPaneDisp.setViewportView(listDisponibles);
+				contentPane.add(scrollPaneDisp);
+				
+				JScrollPane scrollPaneBotin = new JScrollPane();
+				scrollPaneBotin.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+				scrollPaneBotin.setViewportBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+				scrollPaneBotin.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+				scrollPaneBotin.setBounds(621, 156, 309, 202);
+				contentPane.add(scrollPaneBotin);
 	}
 }
