@@ -56,8 +56,8 @@ public class VDesafio extends JFrame {
 		textField_2.setBounds(76, 422, 57, 46);
 		contentPane.add(textField_2);
 
-		JLabel lblNewLabel = new JLabel("Buscador");
-		lblNewLabel.setBounds(147, 90, 85, 46);
+		JLabel lblNewLabel = new JLabel("Elige el tipo de criatura");
+		lblNewLabel.setBounds(109, 90, 123, 46);
 		contentPane.add(lblNewLabel);
 
 		JLabel lblNewLabel_1 = new JLabel("Elige la criatura");
