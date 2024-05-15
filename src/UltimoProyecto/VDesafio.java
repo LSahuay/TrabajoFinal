@@ -96,7 +96,7 @@ public class VDesafio extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				VTesoros frame = new VTesoros();
+				VentanaPrincipal frame = new VentanaPrincipal(toString());
 				frame.setVisible(true);
 				dispose();
 
