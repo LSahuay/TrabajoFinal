@@ -3,6 +3,8 @@ package miApp;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -58,6 +60,16 @@ public class VTesoros extends JFrame {
 		JButton btnNewButton = new JButton("Atrás");
 		btnNewButton.setBounds(87, 489, 85, 21);
 		contentPane.add(btnNewButton);
+		btnNewButton.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				VentanaPrincipal frame = new VentanaPrincipal(toString());
+				frame.setVisible(true);
+				dispose();
+
+			}
+		});
 
 		JButton btnNewButton_1 = new JButton("Generar botín");
 		btnNewButton_1.setBounds(86, 279, 99, 47);
