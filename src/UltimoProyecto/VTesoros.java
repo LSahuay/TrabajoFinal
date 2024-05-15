@@ -157,7 +157,7 @@ public class VTesoros extends JFrame {
             int valorDeseado = Integer.parseInt(textField.getText());
             
             // Consulta SQL para seleccionar los objetos del botín que sumen el valor deseado
-            String consulta = "SELECT nombre_objeto FROM objetos WHERE valor <= ?";
+            String consulta = "SELECT * FROM items WHERE valorDeseado <= coste";
             
             // Preparar la consulta
             PreparedStatement declaración = conexión.prepareStatement(consulta);
@@ -171,7 +171,7 @@ public class VTesoros extends JFrame {
             
             // Iterar sobre los resultados de la consulta y agregar los nombres de los objetos a la lista
             while (resultado.next()) {
-                botin.add(resultado.getString("nombre_objeto"));
+                botin.add(resultado.getString("items"));
             }
             
             // Mostrar el botín generado en la lista
