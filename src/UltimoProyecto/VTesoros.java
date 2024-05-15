@@ -172,6 +172,9 @@ public class VTesoros extends JFrame {
                 System.out.println("Nombre del objeto: " + nombre); // Imprimir el nombre del objeto para diagnóstico
             }
             
+            // Imprimir el tamaño de la lista de objetos disponibles para verificar si se están recuperando datos
+            System.out.println("Tamaño de la lista de objetos disponibles: " + objetosDisponibles.size());
+            
             // Mostrar los objetos disponibles en la lista correspondiente
             listItems.setListData(objetosDisponibles.toArray(new String[0]));
             
@@ -183,8 +186,10 @@ public class VTesoros extends JFrame {
         }
     }
 
+
     
     // Método para generar el botín
+ // Método para generar el botín
     private void generarBotin() {
         try {
             // Establecer la conexión con la base de datos
@@ -193,7 +198,7 @@ public class VTesoros extends JFrame {
             // Obtener el valor deseado del botín desde el campo de texto
             int valorDeseado = Integer.parseInt(textField.getText());
             
-            // Consulta SQL para seleccionar los objetos del botín que sumen el valor deseado
+            // Consulta SQL para seleccionar los objetos del botín que tengan el mismo valor o menor que el valor deseado
             String consulta = "SELECT nombre FROM items WHERE coste <= ?";
             
             // Preparar la consulta
@@ -221,6 +226,7 @@ public class VTesoros extends JFrame {
             // Manejar cualquier excepción de SQL que pueda ocurrir, por ejemplo, mostrar un mensaje de error
         }
     }
+
 }
 
 
