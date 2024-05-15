@@ -26,12 +26,13 @@ public class VTesoros extends JFrame {
     private static final long serialVersionUID = 1L;
     private JPanel contentPane;
     private JTextField textField;
-    private JList<String> list;
+    private JList<String> listItems;
+    private JList<String> listBotin;
 
     // Método para establecer la conexión con la base de datos
     private Connection getConnection() throws SQLException {
         // Configuración de la conexión a la base de datos MySQL
-    	String bbdd="";
+        String bbdd="d&d";
         String url = "jdbc:mysql://localhost:3306/" + bbdd;
         String usuario = "root";
         String contraseña = "";
@@ -96,56 +97,92 @@ public class VTesoros extends JFrame {
         btnNewButton_1.setBounds(86, 279, 99, 47);
         contentPane.add(btnNewButton_1);
         
-        // Lista para mostrar el botín generado
-        list = new JList<>();
-        list.setBounds(275, 156, 309, 202);
-        contentPane.add(list);
+        // Lista para mostrar todos los items disponibles
+        listItems = new JList<>();
+        listItems.setBounds(277, 156, 309, 202);
+        contentPane.add(listItems);
         
-        JList list = new JList();
-		list.setBounds(275, 156, 309, 202);
-		contentPane.add(list);
-		
-		JScrollBar scrollBar = new JScrollBar();
-		scrollBar.setForeground(new Color(0, 128, 0));
-		scrollBar.setBackground(new Color(0, 128, 0));
-		scrollBar.setBounds(594, 156, 17, 200);
-		contentPane.add(scrollBar);
-		
-		JList list_1 = new JList();
-		list_1.setBounds(621, 156, 309, 202);
-		contentPane.add(list_1);
-		
-		JScrollBar scrollBar_1 = new JScrollBar();
-		scrollBar_1.setForeground(new Color(0, 128, 0));
-		scrollBar_1.setBackground(new Color(0, 128, 0));
-		scrollBar_1.setBounds(926, 158, 17, 200);
-		contentPane.add(scrollBar_1);
-		
-		JLabel lblNewLabel = new JLabel("Objetos disponibles");
-		lblNewLabel.setFont(new Font("Arial", Font.PLAIN, 15));
-		lblNewLabel.setBounds(361, 113, 147, 29);
-		contentPane.add(lblNewLabel);
-		
-		JLabel lblBotn = new JLabel("BotÃ­n");
-		lblBotn.setFont(new Font("Arial", Font.PLAIN, 15));
-		lblBotn.setBounds(743, 113, 147, 29);
-		contentPane.add(lblBotn);
-		
-		JButton btnNewButton_2 = new JButton("Limpiar lista");
-		btnNewButton_2.setBounds(832, 368, 98, 47);
-		contentPane.add(btnNewButton_2);
-		
-		JLabel lblNewLabel_1 = new JLabel("Valor total");
-		lblNewLabel_1.setFont(new Font("Arial", Font.PLAIN, 15));
-		lblNewLabel_1.setBounds(621, 371, 99, 39);
-		contentPane.add(lblNewLabel_1);
-		
-		textField = new JTextField();
-		textField.setBounds(718, 372, 99, 39);
-		contentPane.add(textField);
-		textField.setColumns(10);
+        JScrollBar scrollBar = new JScrollBar();
+        scrollBar.setForeground(new Color(0, 128, 0));
+        scrollBar.setBackground(new Color(0, 128, 0));
+        scrollBar.setBounds(594, 156, 17, 200);
+        contentPane.add(scrollBar);
+        
+        // Lista para mostrar los objetos disponibles
+        listBotin = new JList<>();
+        listBotin.setBounds(621, 156, 309, 202);
+        contentPane.add(listBotin);
+        
+        JScrollBar scrollBar_1 = new JScrollBar();
+        scrollBar_1.setForeground(new Color(0, 128, 0));
+        scrollBar_1.setBackground(new Color(0, 128, 0));
+        scrollBar_1.setBounds(926, 158, 17, 200);
+        contentPane.add(scrollBar_1);
+        
+        JLabel lblNewLabel = new JLabel("Objetos disponibles");
+        lblNewLabel.setFont(new Font("Arial", Font.PLAIN, 15));
+        lblNewLabel.setBounds(361, 113, 147, 29);
+        contentPane.add(lblNewLabel);
+        
+        JLabel lblBotn = new JLabel("Botín");
+        lblBotn.setFont(new Font("Arial", Font.PLAIN, 15));
+        lblBotn.setBounds(743, 113, 147, 29);
+        contentPane.add(lblBotn);
+        
+        JButton btnNewButton_2 = new JButton("Limpiar lista");
+        btnNewButton_2.setBounds(832, 368, 98, 47);
+        contentPane.add(btnNewButton_2);
+        
+        JLabel lblNewLabel_1 = new JLabel("Valor total");
+        lblNewLabel_1.setFont(new Font("Arial", Font.PLAIN, 15));
+        lblNewLabel_1.setBounds(621, 371, 99, 39);
+        contentPane.add(lblNewLabel_1);
+        
+        JTextField textField_1 = new JTextField();
+        textField_1.setBounds(718, 372, 99, 39);
+        contentPane.add(textField_1);
+        textField_1.setColumns(10);
 
+        // Llamar al método para mostrar los objetos disponibles al iniciar la ventana
+        mostrarObjetosDisponibles();
     }
+    
+ // Método para mostrar los objetos disponibles
+    private void mostrarObjetosDisponibles() {
+        try {
+            // Establecer la conexión con la base de datos
+            Connection conexión = getConnection();
+            
+            // Consulta SQL para seleccionar todos los objetos disponibles
+            String consulta = "SELECT nombre FROM items";
+            
+            // Preparar la consulta
+            PreparedStatement declaración = conexión.prepareStatement(consulta);
+            
+            // Ejecutar la consulta
+            ResultSet resultado = declaración.executeQuery();
+            
+            // Lista para almacenar los nombres de los objetos disponibles
+            List<String> objetosDisponibles = new ArrayList<>();
+            
+            // Iterar sobre los resultados de la consulta y agregar los nombres de los objetos a la lista
+            while (resultado.next()) {
+                String nombre = resultado.getString("nombre");
+                objetosDisponibles.add(nombre);
+                System.out.println("Nombre del objeto: " + nombre); // Imprimir el nombre del objeto para diagnóstico
+            }
+            
+            // Mostrar los objetos disponibles en la lista correspondiente
+            listItems.setListData(objetosDisponibles.toArray(new String[0]));
+            
+            // Cerrar la conexión y liberar recursos
+            conexión.close();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            // Manejar cualquier excepción de SQL que pueda ocurrir, por ejemplo, mostrar un mensaje de error
+        }
+    }
+
     
     // Método para generar el botín
     private void generarBotin() {
@@ -157,7 +194,7 @@ public class VTesoros extends JFrame {
             int valorDeseado = Integer.parseInt(textField.getText());
             
             // Consulta SQL para seleccionar los objetos del botín que sumen el valor deseado
-            String consulta = "SELECT * FROM items WHERE valorDeseado <= coste";
+            String consulta = "SELECT nombre FROM items WHERE coste <= ?";
             
             // Preparar la consulta
             PreparedStatement declaración = conexión.prepareStatement(consulta);
@@ -171,17 +208,22 @@ public class VTesoros extends JFrame {
             
             // Iterar sobre los resultados de la consulta y agregar los nombres de los objetos a la lista
             while (resultado.next()) {
-                botin.add(resultado.getString("items"));
+                botin.add(resultado.getString("nombre"));
             }
             
             // Mostrar el botín generado en la lista
-            list.setListData(botin.toArray(new String[0]));
+            listBotin.setListData(botin.toArray(new String[0]));
             
             // Cerrar la conexión y liberar recursos
             conexión.close();
-        } catch (SQLException ex) {
+        } catch (SQLException | NumberFormatException ex) {
             ex.printStackTrace();
             // Manejar cualquier excepción de SQL que pueda ocurrir, por ejemplo, mostrar un mensaje de error
         }
     }
 }
+
+
+
+
+
