@@ -1,8 +1,10 @@
 package UltimoProyecto;
 
+import java.awt.Color;
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollBar;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -98,6 +100,51 @@ public class VTesoros extends JFrame {
         list = new JList<>();
         list.setBounds(275, 156, 309, 202);
         contentPane.add(list);
+        
+        JList list = new JList();
+		list.setBounds(275, 156, 309, 202);
+		contentPane.add(list);
+		
+		JScrollBar scrollBar = new JScrollBar();
+		scrollBar.setForeground(new Color(0, 128, 0));
+		scrollBar.setBackground(new Color(0, 128, 0));
+		scrollBar.setBounds(594, 156, 17, 200);
+		contentPane.add(scrollBar);
+		
+		JList list_1 = new JList();
+		list_1.setBounds(621, 156, 309, 202);
+		contentPane.add(list_1);
+		
+		JScrollBar scrollBar_1 = new JScrollBar();
+		scrollBar_1.setForeground(new Color(0, 128, 0));
+		scrollBar_1.setBackground(new Color(0, 128, 0));
+		scrollBar_1.setBounds(926, 158, 17, 200);
+		contentPane.add(scrollBar_1);
+		
+		JLabel lblNewLabel = new JLabel("Objetos disponibles");
+		lblNewLabel.setFont(new Font("Arial", Font.PLAIN, 15));
+		lblNewLabel.setBounds(361, 113, 147, 29);
+		contentPane.add(lblNewLabel);
+		
+		JLabel lblBotn = new JLabel("BotÃ­n");
+		lblBotn.setFont(new Font("Arial", Font.PLAIN, 15));
+		lblBotn.setBounds(743, 113, 147, 29);
+		contentPane.add(lblBotn);
+		
+		JButton btnNewButton_2 = new JButton("Limpiar lista");
+		btnNewButton_2.setBounds(832, 368, 98, 47);
+		contentPane.add(btnNewButton_2);
+		
+		JLabel lblNewLabel_1 = new JLabel("Valor total");
+		lblNewLabel_1.setFont(new Font("Arial", Font.PLAIN, 15));
+		lblNewLabel_1.setBounds(621, 371, 99, 39);
+		contentPane.add(lblNewLabel_1);
+		
+		textField = new JTextField();
+		textField.setBounds(718, 372, 99, 39);
+		contentPane.add(textField);
+		textField.setColumns(10);
+
     }
     
     // Método para generar el botín
