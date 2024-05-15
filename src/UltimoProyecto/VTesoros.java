@@ -31,10 +31,12 @@ public class VTesoros extends JFrame {
     // Método para establecer la conexión con la base de datos
     private Connection getConnection() throws SQLException {
         // Configuración de la conexión a la base de datos MySQL
-    	String bbdd="";
+    	String bbdd="d&d";
         String url = "jdbc:mysql://localhost:3306/" + bbdd;
         String usuario = "root";
         String contraseña = "";
+        
+        //Pruebatraviesa
 
         // Intentar establecer la conexión
         Connection conexión = DriverManager.getConnection(url, usuario, contraseña);
@@ -157,7 +159,7 @@ public class VTesoros extends JFrame {
             int valorDeseado = Integer.parseInt(textField.getText());
             
             // Consulta SQL para seleccionar los objetos del botín que sumen el valor deseado
-            String consulta = "SELECT nombre_objeto FROM objetos WHERE valor <= ?";
+            String consulta = "SELECT * FROM items WHERE valorDeseado <= coste";
             
             // Preparar la consulta
             PreparedStatement declaración = conexión.prepareStatement(consulta);
