@@ -82,7 +82,7 @@ public class VDesafio extends JFrame {
 		contentPane.add(lblNewLabel_4);
 
 		JButton btnNewButton_1 = new JButton("Atrás");
-		btnNewButton_1.setBounds(632, 506, 85, 21);
+		btnNewButton_1.setBounds(634, 510, 85, 21);
 		contentPane.add(btnNewButton_1);
 		btnNewButton_1.addActionListener(new ActionListener() {
 

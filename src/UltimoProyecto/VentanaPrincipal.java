@@ -44,7 +44,7 @@ public class VentanaPrincipal extends JFrame {
 
 		JButton btnAtras = new JButton("Atrás");
 		btnAtras.setFont(new Font("Arial", Font.PLAIN, 15));
-		btnAtras.setBounds(451, 583, 136, 51);
+		btnAtras.setBounds(500, 607, 87, 27);
 //		btnAtras.addActionListener(new MiEvento());
 		btnAtras.addActionListener(new ActionListener() {
 
