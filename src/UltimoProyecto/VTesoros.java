@@ -28,11 +28,12 @@ public class VTesoros extends JFrame {
     private JTextField textField;
     private JList<String> listItems;
     private JList<String> listBotin;
+    private JTextField textField_1;
 
     // Método para establecer la conexión con la base de datos
     private Connection getConnection() throws SQLException {
         // Configuración de la conexión a la base de datos MySQL
-        String bbdd="d&d";
+        String bbdd = "d&d";
         String url = "jdbc:mysql://localhost:3306/" + bbdd;
         String usuario = "root";
         String contraseña = "";
@@ -138,7 +139,7 @@ public class VTesoros extends JFrame {
         lblNewLabel_1.setBounds(621, 371, 99, 39);
         contentPane.add(lblNewLabel_1);
         
-        JTextField textField_1 = new JTextField();
+        textField_1 = new JTextField(); // Cambiado textField_1 a variable de instancia
         textField_1.setBounds(718, 372, 99, 39);
         contentPane.add(textField_1);
         textField_1.setColumns(10);
@@ -147,7 +148,7 @@ public class VTesoros extends JFrame {
         mostrarObjetosDisponibles();
     }
     
- // Método para mostrar los objetos disponibles
+    // Método para mostrar los objetos disponibles
     private void mostrarObjetosDisponibles() {
         try {
             // Establecer la conexión con la base de datos
@@ -185,11 +186,8 @@ public class VTesoros extends JFrame {
             // Manejar cualquier excepción de SQL que pueda ocurrir, por ejemplo, mostrar un mensaje de error
         }
     }
-
-
     
     // Método para generar el botín
- // Método para generar el botín
     private void generarBotin() {
         try {
             // Establecer la conexión con la base de datos
@@ -199,7 +197,7 @@ public class VTesoros extends JFrame {
             int valorDeseado = Integer.parseInt(textField.getText());
             
             // Consulta SQL para seleccionar los objetos del botín que tengan el mismo valor o menor que el valor deseado
-            String consulta = "SELECT nombre FROM items WHERE coste <= ?";
+            String consulta = "SELECT nombre, coste FROM items WHERE coste <= ?";
             
             // Preparar la consulta
             PreparedStatement declaración = conexión.prepareStatement(consulta);
@@ -210,14 +208,22 @@ public class VTesoros extends JFrame {
             
             // Lista para almacenar los nombres de los objetos del botín
             List<String> botin = new ArrayList<>();
+            // Variable para almacenar el valor total del botín
+            int valorTotalBotin = 0;
             
             // Iterar sobre los resultados de la consulta y agregar los nombres de los objetos a la lista
             while (resultado.next()) {
-                botin.add(resultado.getString("nombre"));
+                String nombre = resultado.getString("nombre");
+                int coste = resultado.getInt("coste");
+                botin.add(nombre);
+                valorTotalBotin += coste; // Sumar el coste del objeto al valor total del botín
             }
             
             // Mostrar el botín generado en la lista
             listBotin.setListData(botin.toArray(new String[0]));
+            
+            // Mostrar el valor total del botín en el campo correspondiente
+            textField_1.setText(String.valueOf(valorTotalBotin));
             
             // Cerrar la conexión y liberar recursos
             conexión.close();
@@ -226,10 +232,4 @@ public class VTesoros extends JFrame {
             // Manejar cualquier excepción de SQL que pueda ocurrir, por ejemplo, mostrar un mensaje de error
         }
     }
-
 }
-
-
-
-
-
