@@ -10,6 +10,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
@@ -90,6 +91,17 @@ public class AddUser extends JFrame {
 		JButton btnGuardar = new JButton("Guardar Usuario");
 		btnGuardar.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnGuardar.setBounds(204, 294, 166, 41);
+		btnGuardar.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				//Muestra un mensaje sin más. Un syso
+				JOptionPane.showMessageDialog(null, "Usuario guardado",
+						"Confirmación de registro", JOptionPane.DEFAULT_OPTION);
+				
+			}
+			
+		});
 		miPanel.add(btnGuardar);
 
 		JLabel lblNewUser = new JLabel("Create New User");
@@ -97,11 +109,20 @@ public class AddUser extends JFrame {
 		lblNewUser.setForeground(Color.WHITE);
 		lblNewUser.setBounds(222, 34, 131, 20);
 		miPanel.add(lblNewUser);
+		
+		JButton btnAtras = new JButton("Atrás");
+		btnAtras.setBounds(480, 351, 85, 21);
+		btnAtras.addActionListener(new ActionListener() {
 
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\luisj\\eclipse-workspace\\Proyecto_Programacion_19\\img\\creaciondym.jpg"));
-		lblNewLabel.setBounds(0, 0, 575, 382);
-		miPanel.add(lblNewLabel);
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Login frame = new Login();
+				frame.setVisible(true);
+				dispose();
+
+			}
+		});
+		miPanel.add(btnAtras);
 
 		btnGuardar.addActionListener(new ActionListener() {
 

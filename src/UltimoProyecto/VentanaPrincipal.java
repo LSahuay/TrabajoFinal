@@ -19,7 +19,7 @@ public class VentanaPrincipal extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private final JLabel lblNewLabel = new JLabel("New label");
+	private final JLabel lblFondo = new JLabel("New label");
 
 	/**
 	 * Create the frame.
@@ -79,9 +79,9 @@ public class VentanaPrincipal extends JFrame {
 		btnGeneradorDeBotn.setFont(new Font("Arial", Font.PLAIN, 15));
 		btnGeneradorDeBotn.setBounds(307, 365, 204, 51);
 		contentPane.add(btnGeneradorDeBotn);
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\jose_\\Desktop\\de21c37d-f75a-4c7f-b246-b54bee5631bd.jpeg"));
-		lblNewLabel.setBounds(0, 0, 611, 644);
-		contentPane.add(lblNewLabel);
+		lblFondo.setIcon(new ImageIcon("C:\\Users\\jose_\\Desktop\\Cosas Varias\\de21c37d-f75a-4c7f-b246-b54bee5631bd.jpeg"));
+		lblFondo.setBounds(0, 0, 597, 644);
+		contentPane.add(lblFondo);
 		btnGeneradorDeBotn.addActionListener(new ActionListener() {
 
 			@Override
