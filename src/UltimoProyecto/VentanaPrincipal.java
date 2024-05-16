@@ -14,6 +14,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
+import javax.swing.SwingConstants;
 
 public class VentanaPrincipal extends JFrame {
 
@@ -36,10 +37,12 @@ public class VentanaPrincipal extends JFrame {
 		contentPane.setLayout(null);
 
 		JLabel lblUsuario = new JLabel("Usuario: " + nombreUsuario);
-		lblUsuario.setForeground(new Color(192, 192, 192));
-		lblUsuario.setBackground(new Color(192, 192, 192));
+		lblUsuario.setHorizontalAlignment(SwingConstants.CENTER);
+		lblUsuario.setForeground(new Color(255, 255, 255));
+		lblUsuario.setBackground(new Color(0, 0, 0, 150));
 		lblUsuario.setFont(new Font("Bookman Old Style", Font.PLAIN, 20));
 		lblUsuario.setBounds(188, 10, 215, 87);
+		lblUsuario.setOpaque(true);
 		contentPane.add(lblUsuario);
 
 		JButton btnAtras = new JButton("Atrás");

@@ -15,6 +15,8 @@ import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.ImageIcon;
+import java.awt.Color;
+import javax.swing.SwingConstants;
 
 public class VDesafio extends JFrame {
 
@@ -53,15 +55,27 @@ public class VDesafio extends JFrame {
 		contentPane.add(textField_2);
 
 		JLabel lblNewLabel = new JLabel("Elige el tipo de criatura");
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setForeground(new Color(255, 255, 255));
+		lblNewLabel.setBackground(new Color(0, 0, 0, 150));
 		lblNewLabel.setBounds(109, 90, 123, 46);
+		lblNewLabel.setOpaque(true);
 		contentPane.add(lblNewLabel);
 
 		JLabel lblNewLabel_1 = new JLabel("Elige la criatura");
+		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_1.setForeground(new Color(255, 255, 255));
+		lblNewLabel_1.setBackground(new Color(0, 0, 0, 150));
 		lblNewLabel_1.setBounds(147, 168, 85, 46);
+		lblNewLabel_1.setOpaque(true);
 		contentPane.add(lblNewLabel_1);
 
 		JLabel lblNewLabel_2 = new JLabel("Puntos de vida");
+		lblNewLabel_2.setForeground(new Color(255, 255, 255));
+		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2.setBackground(new Color(0, 0, 0, 150));
 		lblNewLabel_2.setBounds(147, 244, 85, 46);
+		lblNewLabel_2.setOpaque(true);
 		contentPane.add(lblNewLabel_2);
 
 		textField_3 = new JTextField();
@@ -74,11 +88,19 @@ public class VDesafio extends JFrame {
 		contentPane.add(textArea);
 
 		JLabel lblNewLabel_3 = new JLabel("Valor de desafío");
-		lblNewLabel_3.setBounds(70, 380, 74, 32);
+		lblNewLabel_3.setBackground(new Color(0, 0, 0, 150));
+		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_3.setForeground(new Color(255, 255, 255));
+		lblNewLabel_3.setBounds(61, 380, 85, 32);
+		lblNewLabel_3.setOpaque(true);
 		contentPane.add(lblNewLabel_3);
 
 		JLabel lblNewLabel_4 = new JLabel("Ataques");
-		lblNewLabel_4.setBounds(322, 315, 46, 32);
+		lblNewLabel_4.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_4.setForeground(new Color(255, 255, 255));
+		lblNewLabel_4.setBackground(new Color(0, 0, 0, 150));
+		lblNewLabel_4.setBounds(325, 303, 57, 32);
+		lblNewLabel_4.setOpaque(true);
 		contentPane.add(lblNewLabel_4);
 
 		JButton btnNewButton_1 = new JButton("Atrás");
@@ -96,12 +118,20 @@ public class VDesafio extends JFrame {
 		});
 
 		JLabel lblNewLabel_5 = new JLabel("Total");
-		lblNewLabel_5.setBounds(486, 209, 35, 32);
+		lblNewLabel_5.setBackground(new Color(0, 0, 0, 150));
+		lblNewLabel_5.setForeground(new Color(255, 255, 255));
+		lblNewLabel_5.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_5.setBounds(478, 203, 49, 32);
+		lblNewLabel_5.setOpaque(true);
 		contentPane.add(lblNewLabel_5);
 
 		JLabel lblNewLabel_6 = new JLabel("Genera el valor del desafío");
+		lblNewLabel_6.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_6.setForeground(new Color(255, 255, 255));
+		lblNewLabel_6.setBackground(new Color(0, 0, 0, 150));
 		lblNewLabel_6.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblNewLabel_6.setBounds(229, 10, 256, 46);
+		lblNewLabel_6.setOpaque(true);
 		contentPane.add(lblNewLabel_6);
 
 		JButton btnNewButton_2 = new JButton("Guardar criatura");
