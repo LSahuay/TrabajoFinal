@@ -8,11 +8,13 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
+import javax.swing.ImageIcon;
 
 public class VDesafio extends JFrame {
 
@@ -29,7 +31,7 @@ public class VDesafio extends JFrame {
 	 */
 	public VDesafio() {
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		setBounds(100, 100, 741, 574);
+		setBounds(100, 100, 743, 578);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -104,10 +106,26 @@ public class VDesafio extends JFrame {
 
 		JButton btnNewButton_2 = new JButton("Guardar criatura");
 		btnNewButton_2.setBounds(468, 396, 128, 46);
+		btnNewButton_2.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				//Muestra un mensaje sin más. Un syso
+				JOptionPane.showMessageDialog(null, "Criatura guardada",
+						"Confirmación", JOptionPane.DEFAULT_OPTION);
+				
+			}
+			
+		});
 		contentPane.add(btnNewButton_2);
 		
 		JComboBox comboBox_1 = new JComboBox();
 		comboBox_1.setBounds(242, 82, 216, 66);
 		contentPane.add(comboBox_1);
+		
+		JLabel lblFondo = new JLabel("New label");
+		lblFondo.setIcon(new ImageIcon("C:\\Users\\jose_\\Downloads\\chris-dien-evergreen-beholder-sml.jpg"));
+		lblFondo.setBounds(0, 2, 729, 539);
+		contentPane.add(lblFondo);
 	}
 }
