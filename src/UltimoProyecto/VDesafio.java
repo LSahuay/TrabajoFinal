@@ -18,7 +18,6 @@ public class VDesafio extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextField textField_3;
@@ -40,11 +39,6 @@ public class VDesafio extends JFrame {
 		JComboBox comboBox = new JComboBox();
 		comboBox.setBounds(242, 158, 216, 66);
 		contentPane.add(comboBox);
-
-		textField = new JTextField();
-		textField.setBounds(242, 91, 216, 46);
-		contentPane.add(textField);
-		textField.setColumns(10);
 
 		textField_1 = new JTextField();
 		textField_1.setColumns(10);
@@ -76,10 +70,6 @@ public class VDesafio extends JFrame {
 		JTextArea textArea = new JTextArea();
 		textArea.setBounds(242, 345, 216, 158);
 		contentPane.add(textArea);
-
-		JButton btnNewButton = new JButton("New button");
-		btnNewButton.setBounds(468, 91, 46, 46);
-		contentPane.add(btnNewButton);
 
 		JLabel lblNewLabel_3 = new JLabel("Valor de desafío");
 		lblNewLabel_3.setBounds(70, 380, 74, 32);
@@ -115,5 +105,9 @@ public class VDesafio extends JFrame {
 		JButton btnNewButton_2 = new JButton("Guardar criatura");
 		btnNewButton_2.setBounds(468, 396, 128, 46);
 		contentPane.add(btnNewButton_2);
+		
+		JComboBox comboBox_1 = new JComboBox();
+		comboBox_1.setBounds(242, 82, 216, 66);
+		contentPane.add(comboBox_1);
 	}
 }
