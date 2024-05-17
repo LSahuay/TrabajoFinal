@@ -7,6 +7,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextField;
@@ -88,6 +89,17 @@ public class VTesoros extends JFrame {
         JButton btnNewButton = new JButton("Atrás");
         btnNewButton.setBounds(87, 489, 85, 21);
         contentPane.add(btnNewButton);
+		btnNewButton.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				VentanaPrincipal frame = new VentanaPrincipal(toString());
+				frame.setVisible(true);
+				dispose();
+
+			}
+		});
+
         
         // Botón "Generar botín"
         JButton btnNewButton_1 = new JButton("Generar botín");

@@ -117,14 +117,14 @@ public class VDesafio extends JFrame {
 			conn = DriverManager.getConnection("jdbc:mariadb://localhost:3306/d&d","root","");
 			
 
-		consulta = "SELECT DISTINCT nombre FROM criaturas";
+		consulta = "SELECT DISTINCT tipo FROM criaturas";
 		PreparedStatement statement = conn.prepareStatement(consulta);
 		ResultSet resultSet = statement.executeQuery();
 
 		
 		while (resultSet.next()) {
 			
-			item =resultSet.getString("nombre");
+			item =resultSet.getString("tipo");
 			comboBox_1.addItem(item);
 				
 			}
@@ -146,13 +146,13 @@ public class VDesafio extends JFrame {
 				try {
 					conn = DriverManager.getConnection("jdbc:mariadb://localhost:3306/d&d","root","");
 					
-					consul = "SELECT tipo FROM criaturas WHERE nombre = '"+id+"'";
+					consul = "SELECT nombre FROM criaturas WHERE tipo = '"+id+"'";
 					PreparedStatement statement = conn.prepareStatement(consul);
 					ResultSet resultSet = statement.executeQuery(); 
 					
 					while (resultSet.next()) {
 						
-						item2 =resultSet.getString("tipo");
+						item2 =resultSet.getString("nombre");
 						comboBox_2.addItem(item2);
 						}
 				
@@ -179,15 +179,15 @@ public class VDesafio extends JFrame {
 				try {
 					conn = DriverManager.getConnection("jdbc:mariadb://localhost:3306/d&d","root","");
 					
-					consul2 = "SELECT hr,ATAQUE FROM criaturas WHERE tipo = '"+pv+"'";
+					consul2 = "SELECT hp,ataque FROM criaturas WHERE nombre = '"+pv+"'";
 					PreparedStatement statement = conn.prepareStatement(consul2);
 					ResultSet resultSet = statement.executeQuery(); 
 					
 					while (resultSet.next()) {
 						
-						item3 =resultSet.getString("hr");
+						item3 =resultSet.getString("hp");
 						textField_1.setText(item3);
-						item4=resultSet.getString("ATAQUE");
+						item4=resultSet.getString("ataque");
 						textArea.setText(item4);
 						}
 				
