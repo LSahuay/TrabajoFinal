@@ -3,6 +3,13 @@ package miApp;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.security.interfaces.RSAKey;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -13,17 +20,18 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
+import javax.management.loading.PrivateClassLoader;
+import javax.swing.DefaultComboBoxModel;
 
 public class VDesafio extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextField textField_3;
-
-
+	private Connection conn;
+	private JTextField textField_1;
 
 	/**
 	 * Create the frame.
@@ -37,49 +45,31 @@ public class VDesafio extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(242, 158, 216, 66);
-		contentPane.add(comboBox);
-
-		textField = new JTextField();
-		textField.setBounds(242, 91, 216, 46);
-		contentPane.add(textField);
-		textField.setColumns(10);
-
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(242, 245, 216, 46);
-		contentPane.add(textField_1);
-
 		textField_2 = new JTextField();
 		textField_2.setColumns(10);
 		textField_2.setBounds(76, 422, 57, 46);
 		contentPane.add(textField_2);
 
-		JLabel lblNewLabel = new JLabel("Buscador");
-		lblNewLabel.setBounds(147, 90, 85, 46);
+		JLabel lblNewLabel = new JLabel("Elige el tipo de criatura");
+		lblNewLabel.setBounds(55, 92, 177, 46);
 		contentPane.add(lblNewLabel);
 
 		JLabel lblNewLabel_1 = new JLabel("Elige la criatura");
-		lblNewLabel_1.setBounds(147, 168, 85, 46);
+		lblNewLabel_1.setBounds(55, 168, 177, 46);
 		contentPane.add(lblNewLabel_1);
 
-		JLabel lblNewLabel_2 = new JLabel("Puntos de vida");
-		lblNewLabel_2.setBounds(147, 244, 85, 46);
+		JLabel lblNewLabel_2 = new JLabel("Puntos de vida de la criatura");
+		lblNewLabel_2.setBounds(55, 251, 177, 46);
 		contentPane.add(lblNewLabel_2);
 
 		textField_3 = new JTextField();
-		textField_3.setBounds(468, 245, 67, 46);
+		textField_3.setBounds(468, 259, 96, 32);
 		contentPane.add(textField_3);
 		textField_3.setColumns(10);
 
 		JTextArea textArea = new JTextArea();
 		textArea.setBounds(242, 345, 216, 158);
 		contentPane.add(textArea);
-
-		JButton btnNewButton = new JButton("New button");
-		btnNewButton.setBounds(468, 91, 46, 46);
-		contentPane.add(btnNewButton);
 
 		JLabel lblNewLabel_3 = new JLabel("Valor de desafío");
 		lblNewLabel_3.setBounds(70, 380, 74, 32);
@@ -96,7 +86,7 @@ public class VDesafio extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				VTesoros frame = new VTesoros();
+				VentanaPrincipal frame = new VentanaPrincipal(toString());
 				frame.setVisible(true);
 				dispose();
 
@@ -104,7 +94,7 @@ public class VDesafio extends JFrame {
 		});
 
 		JLabel lblNewLabel_5 = new JLabel("Total");
-		lblNewLabel_5.setBounds(486, 209, 35, 32);
+		lblNewLabel_5.setBounds(501, 217, 35, 32);
 		contentPane.add(lblNewLabel_5);
 
 		JLabel lblNewLabel_6 = new JLabel("Genera el valor del desafío");
@@ -115,5 +105,114 @@ public class VDesafio extends JFrame {
 		JButton btnNewButton_2 = new JButton("Guardar criatura");
 		btnNewButton_2.setBounds(468, 396, 128, 46);
 		contentPane.add(btnNewButton_2);
+		
+		JComboBox<Object> comboBox_1 = new JComboBox<>();
+		comboBox_1.setBounds(242, 82, 216, 66);
+		JComboBox<Object> comboBox_2 = new JComboBox<>();
+		comboBox_2.setBounds(242, 158, 216, 66);
+		String item= "";
+		String consulta="";
+		
+		try {
+			conn = DriverManager.getConnection("jdbc:mariadb://localhost:3306/d&d","root","");
+			
+
+		consulta = "SELECT DISTINCT nombre FROM criaturas";
+		PreparedStatement statement = conn.prepareStatement(consulta);
+		ResultSet resultSet = statement.executeQuery();
+
+		
+		while (resultSet.next()) {
+			
+			item =resultSet.getString("nombre");
+			comboBox_1.addItem(item);
+				
+			}
+		
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		comboBox_1.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				String id = (String) comboBox_1.getSelectedItem();
+				String consul = "";
+				String item2 = "";
+				comboBox_2.removeAllItems();
+				
+				try {
+					conn = DriverManager.getConnection("jdbc:mariadb://localhost:3306/d&d","root","");
+					
+					consul = "SELECT tipo FROM criaturas WHERE nombre = '"+id+"'";
+					PreparedStatement statement = conn.prepareStatement(consul);
+					ResultSet resultSet = statement.executeQuery(); 
+					
+					while (resultSet.next()) {
+						
+						item2 =resultSet.getString("tipo");
+						comboBox_2.addItem(item2);
+						}
+				
+					
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+
+				
+				
+			}
+		});
+
+		comboBox_2.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				String pv=(String) comboBox_2.getSelectedItem();
+				String consul2 = "";
+				String item3 = "";
+				String item4 = "";
+				
+				try {
+					conn = DriverManager.getConnection("jdbc:mariadb://localhost:3306/d&d","root","");
+					
+					consul2 = "SELECT hr,ATAQUE FROM criaturas WHERE tipo = '"+pv+"'";
+					PreparedStatement statement = conn.prepareStatement(consul2);
+					ResultSet resultSet = statement.executeQuery(); 
+					
+					while (resultSet.next()) {
+						
+						item3 =resultSet.getString("hr");
+						textField_1.setText(item3);
+						item4=resultSet.getString("ATAQUE");
+						textArea.setText(item4);
+						}
+				
+					
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+
+				
+				
+			}
+		});
+		
+		
+
+		
+		
+		contentPane.add(comboBox_1);
+		contentPane.add(comboBox_2);
+		
+		textField_1 = new JTextField();
+		textField_1.setBounds(246, 258, 212, 32);
+		contentPane.add(textField_1);
+		textField_1.setColumns(10);
+		
 	}
 }
