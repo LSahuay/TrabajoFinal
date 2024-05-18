@@ -31,11 +31,12 @@ public class VDesafio extends JFrame {
 	private JTextField textField_d;
 	private Connection conn;
 	private JTextField textField_1;
+	private String usuario;
 
 	/**
 	 * Create the frame.
 	 */
-	public VDesafio() {
+	public VDesafio(String nombreUsuario) {
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		setBounds(100, 100, 741, 574);
 		contentPane = new JPanel();
@@ -80,7 +81,7 @@ public class VDesafio extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				VentanaPrincipal frame = new VentanaPrincipal(toString());
+				VentanaPrincipal frame = new VentanaPrincipal(nombreUsuario);
 				frame.setVisible(true);
 				dispose();
 
@@ -228,6 +229,14 @@ public class VDesafio extends JFrame {
 			BaseDatos bbdd = new BaseDatos();
 			bbdd.cerrarDB();
 		}
+	
+	public String setUsuario(String nombreUsuario) {
+		this.usuario=nombreUsuario;
+		
+		return usuario;
+	
+		
+	}
 		
 }
 

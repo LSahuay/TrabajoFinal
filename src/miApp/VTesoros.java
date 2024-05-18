@@ -31,35 +31,19 @@ public class VTesoros extends JFrame {
     private JList<String> listItems;
     private JList<String> listBotin;
     private JTextField textField_1;
+    private String usuario;
+    private Connection conn;
 
     // Método para establecer la conexión con la base de datos
     private Connection getConnection() throws SQLException {
         // Configuración de la conexión a la base de datos MySQL
-        String bbdd = "d&d";
-        String url = "jdbc:mysql://localhost:3306/" + bbdd;
-        String usuario = "root";
-        String contraseña = "";
-
-        // Intentar establecer la conexión
-        Connection conexión = DriverManager.getConnection(url, usuario, contraseña);
-        return conexión;
+    	conn = DriverManager.getConnection("jdbc:mariadb://localhost:3306/d&d",
+				"root",
+				"");
+        return conn;
     }
 
-    public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    // Crear e iniciar la ventana de la aplicación
-                    VTesoros frame = new VTesoros();
-                    frame.setVisible(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
-
-    public VTesoros() {
+    public VTesoros(String nombreUsuario) {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 975, 557);
         contentPane = new JPanel();
@@ -93,7 +77,7 @@ public class VTesoros extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				VentanaPrincipal frame = new VentanaPrincipal(toString());
+				VentanaPrincipal frame = new VentanaPrincipal(nombreUsuario);
 				frame.setVisible(true);
 				dispose();
 
@@ -266,5 +250,11 @@ public class VTesoros extends JFrame {
         listBotin.setListData(new String[0]);
         textField_1.setText("");
     }
+	public String setUsuario(String nombreUsuario) {
+		this.usuario=nombreUsuario;
+		return usuario;
+	
+		
+	}
 }
 
