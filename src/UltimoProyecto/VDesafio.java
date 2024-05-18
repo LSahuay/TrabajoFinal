@@ -25,13 +25,13 @@ public class VDesafio extends JFrame {
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextField textField_3;
-
+	private String usuario;
 
 
 	/**
 	 * Create the frame.
 	 */
-	public VDesafio() {
+	public VDesafio(String nombreUsuario) {
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		setBounds(100, 100, 743, 578);
 		contentPane = new JPanel();
@@ -110,7 +110,7 @@ public class VDesafio extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				VentanaPrincipal frame = new VentanaPrincipal(toString());
+				VentanaPrincipal frame = new VentanaPrincipal(nombreUsuario);
 				frame.setVisible(true);
 				dispose();
 
@@ -157,5 +157,15 @@ public class VDesafio extends JFrame {
 		lblFondo.setIcon(new ImageIcon("C:\\Users\\jose_\\Downloads\\chris-dien-evergreen-beholder-sml.jpg"));
 		lblFondo.setBounds(0, 2, 729, 539);
 		contentPane.add(lblFondo);
+	}
+
+
+
+	public String setUsuario(String nombreUsuario) {
+		this.usuario=nombreUsuario;
+		
+		return usuario;
+	
+		
 	}
 }

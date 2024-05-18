@@ -31,13 +31,14 @@ public class VTesoros extends JFrame {
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTextField textField_1;
+	private String usuario;
 
 
 
 	/**
 	 * Create the frame.
 	 */
-	public VTesoros() {
+	public VTesoros(String nombreUsuario) {
 		setFont(new Font("Bookman Old Style", Font.PLAIN, 20));
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\jose_\\eclipse-workspace\\Ventanas\\dnd.jpg"));
 		setTitle("DUNGEONS & DRAGONS");
@@ -79,7 +80,7 @@ public class VTesoros extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				VentanaPrincipal frame = new VentanaPrincipal(toString());
+				VentanaPrincipal frame = new VentanaPrincipal(nombreUsuario);
 				frame.setVisible(true);
 				dispose();
 
@@ -87,8 +88,8 @@ public class VTesoros extends JFrame {
 		});
 
 		JButton btnNewButton_1 = new JButton("Generar botín");
-		btnNewButton_1.setForeground(new Color(255, 255, 255));
-		btnNewButton_1.setBackground(new Color(176, 0, 0));
+		btnNewButton_1.setForeground(new Color(0, 0, 0));
+		btnNewButton_1.setBackground(new Color(255, 255, 255));
 		btnNewButton_1.setBounds(81, 289, 118, 47);
 		contentPane.add(btnNewButton_1);
 
@@ -153,5 +154,12 @@ public class VTesoros extends JFrame {
 						lblFondo.setIcon(new ImageIcon("C:\\Users\\jose_\\Desktop\\treasure.jpg"));
 						lblFondo.setBounds(0, 0, 961, 520);
 						contentPane.add(lblFondo);
+	}
+	public String setUsuario(String nombreUsuario) {
+		this.usuario=nombreUsuario;
+		
+		return usuario;
+	
+		
 	}
 }

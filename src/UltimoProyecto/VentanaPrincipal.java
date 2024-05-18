@@ -71,8 +71,9 @@ public class VentanaPrincipal extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				VDesafio frame = new VDesafio();
+				VDesafio frame = new VDesafio(nombreUsuario);
 				frame.setVisible(true);
+				frame.setUsuario(nombreUsuario);
 				dispose();
 				
 			}
@@ -89,8 +90,9 @@ public class VentanaPrincipal extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				VTesoros frame = new VTesoros();
+				VTesoros frame = new VTesoros(nombreUsuario);
 				frame.setVisible(true);
+				frame.setUsuario(nombreUsuario);
 				dispose();
 
 			}
