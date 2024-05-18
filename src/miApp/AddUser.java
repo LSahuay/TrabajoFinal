@@ -5,7 +5,12 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+
+
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -55,19 +60,19 @@ public class AddUser extends JFrame {
 		
 		JLabel lblUsername = new JLabel("Usuario");
 		lblUsername.setForeground(Color.WHITE);
-		lblUsername.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblUsername.setFont(new Font("Bookman Old Style", Font.BOLD, 14));
 		lblUsername.setBounds(162, 80, 139, 41);
 		miPanel.add(lblUsername);
 		
 		JLabel lblPassword = new JLabel("Password");
 		lblPassword.setForeground(Color.WHITE);
-		lblPassword.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblPassword.setFont(new Font("Bookman Old Style", Font.BOLD, 14));
 		lblPassword.setBounds(162, 140, 139, 41);
 		miPanel.add(lblPassword);
 		
 		JLabel lblRepeatPassword = new JLabel("RepeatPassword");
 		lblRepeatPassword.setForeground(Color.WHITE);
-		lblRepeatPassword.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblRepeatPassword.setFont(new Font("Bookman Old Style", Font.BOLD, 14));
 		lblRepeatPassword.setBounds(162, 199, 187, 36);
 		miPanel.add(lblRepeatPassword);
 		
@@ -87,18 +92,47 @@ public class AddUser extends JFrame {
 		miPanel.add(txtRepeatPassword);
 		
 		JButton btnGuardar = new JButton("Guardar Usuario");
-		btnGuardar.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnGuardar.setFont(new Font("Bookman Old Style", Font.PLAIN, 15));
 		btnGuardar.setBounds(204, 294, 166, 41);
+		btnGuardar.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				//Muestra un mensaje sin más. Un syso
+				JOptionPane.showMessageDialog(null, "Usuario guardado",
+						"Confirmación de registro", JOptionPane.DEFAULT_OPTION);
+				
+			}
+			
+		});
 		miPanel.add(btnGuardar);
 		
 		JLabel lblNewUser = new JLabel("Create New User");
-		lblNewUser.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblNewUser.setFont(new Font("Bookman Old Style", Font.BOLD, 20));
 		lblNewUser.setForeground(Color.WHITE);
-		lblNewUser.setBounds(222, 34, 131, 20);
+		lblNewUser.setBounds(192, 31, 191, 20);
 		miPanel.add(lblNewUser);
 		
+
+		
+		JButton btnatras = new JButton("Atras");
+		btnatras.setFont(new Font("Bookman Old Style", Font.PLAIN, 10));
+		btnatras.setBackground(Color.WHITE);
+		btnatras.setBounds(452, 327, 97, 33);
+		btnatras.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Login frame = new Login();
+				frame.setVisible(true);
+				dispose();
+
+			}
+		});
+		miPanel.add(btnatras);
+		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\luisj\\eclipse-workspace\\Proyecto_Programacion_19\\img\\creaciondym.jpg"));
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\luisj\\Desktop\\img_proyecto_programacion\\creaciondym.jpg"));
 		lblNewLabel.setBounds(0, 0, 575, 382);
 		miPanel.add(lblNewLabel);
 		

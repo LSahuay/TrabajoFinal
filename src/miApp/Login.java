@@ -45,12 +45,14 @@ public class Login extends JFrame {
 		
 		//Añadimos componentes al panel
 		JLabel lblUsername = new JLabel("Username");
-		lblUsername.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblUsername.setForeground(Color.WHITE);
+		lblUsername.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblUsername.setBounds(162, 117, 120, 41);
 		miPanel.add(lblUsername);
 		
 		JLabel lblPassword = new JLabel("Password");
-		lblPassword.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblPassword.setForeground(Color.WHITE);
+		lblPassword.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblPassword.setBounds(162, 189, 120, 33);
 		miPanel.add(lblPassword);
 		
@@ -80,7 +82,7 @@ public class Login extends JFrame {
 		miPanel.add(btnNewButton);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\luisj\\eclipse-workspace\\Proyecto_Programacion_19\\img\\dragones y m.jpg"));
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\luisj\\Desktop\\img_proyecto_programacion\\dragones y m.jpg"));
 		lblNewLabel.setBounds(0, 0, 575, 382);
 		miPanel.add(lblNewLabel);
 		
@@ -90,6 +92,7 @@ public class Login extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				AddUser nuevo = new AddUser();
 				nuevo.setVisible(true);
+				dispose();
 				
 			}
 		});

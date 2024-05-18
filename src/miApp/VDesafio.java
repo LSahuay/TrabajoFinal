@@ -23,6 +23,8 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 import javax.management.loading.PrivateClassLoader;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
+import java.awt.Color;
 
 public class VDesafio extends JFrame {
 
@@ -38,7 +40,7 @@ public class VDesafio extends JFrame {
 	 */
 	public VDesafio(String nombreUsuario) {
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		setBounds(100, 100, 741, 574);
+		setBounds(100, 100, 727, 569);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -46,36 +48,48 @@ public class VDesafio extends JFrame {
 		contentPane.setLayout(null);
 
 		textField_d = new JTextField();
+		textField_d.setBackground(Color.LIGHT_GRAY);
 		textField_d.setColumns(10);
-		textField_d.setBounds(76, 422, 57, 46);
+		textField_d.setBounds(90, 422, 57, 46);
 		contentPane.add(textField_d);
 
 		JLabel lblNewLabel = new JLabel("Elige el tipo de criatura");
-		lblNewLabel.setBounds(55, 92, 177, 46);
+		lblNewLabel.setForeground(Color.WHITE);
+		lblNewLabel.setFont(new Font("Bookman Old Style", Font.BOLD, 12));
+		lblNewLabel.setBounds(55, 92, 486, 46);
 		contentPane.add(lblNewLabel);
 
 		JLabel lblNewLabel_1 = new JLabel("Elige la criatura");
-		lblNewLabel_1.setBounds(55, 168, 177, 46);
+		lblNewLabel_1.setForeground(Color.WHITE);
+		lblNewLabel_1.setFont(new Font("Bookman Old Style", Font.BOLD, 12));
+		lblNewLabel_1.setBounds(55, 168, 486, 46);
 		contentPane.add(lblNewLabel_1);
 
 		JLabel lblNewLabel_2 = new JLabel("Puntos de vida de la criatura");
-		lblNewLabel_2.setBounds(55, 251, 177, 46);
+		lblNewLabel_2.setForeground(Color.WHITE);
+		lblNewLabel_2.setFont(new Font("Bookman Old Style", Font.BOLD, 12));
+		lblNewLabel_2.setBounds(55, 251, 486, 46);
 		contentPane.add(lblNewLabel_2);
 
 		JTextArea textArea = new JTextArea();
+		textArea.setBackground(Color.LIGHT_GRAY);
 		textArea.setBounds(242, 345, 216, 158);
 		contentPane.add(textArea);
 
 		JLabel lblNewLabel_3 = new JLabel("Valor de desafío");
-		lblNewLabel_3.setBounds(70, 380, 74, 32);
+		lblNewLabel_3.setFont(new Font("Bookman Old Style", Font.BOLD, 12));
+		lblNewLabel_3.setForeground(Color.WHITE);
+		lblNewLabel_3.setBounds(70, 380, 128, 32);
 		contentPane.add(lblNewLabel_3);
 
 		JLabel lblNewLabel_4 = new JLabel("Ataques");
-		lblNewLabel_4.setBounds(322, 315, 46, 32);
+		lblNewLabel_4.setForeground(Color.WHITE);
+		lblNewLabel_4.setFont(new Font("Bookman Old Style", Font.BOLD, 12));
+		lblNewLabel_4.setBounds(322, 315, 85, 32);
 		contentPane.add(lblNewLabel_4);
 
 		JButton btnNewButton_1 = new JButton("Atrás");
-		btnNewButton_1.setBounds(632, 506, 85, 21);
+		btnNewButton_1.setBounds(618, 501, 85, 21);
 		contentPane.add(btnNewButton_1);
 		btnNewButton_1.addActionListener(new ActionListener() {
 
@@ -89,21 +103,27 @@ public class VDesafio extends JFrame {
 		});
 
 		JLabel lblNewLabel_5 = new JLabel("Total");
-		lblNewLabel_5.setBounds(501, 235, 35, 32);
+		lblNewLabel_5.setForeground(Color.WHITE);
+		lblNewLabel_5.setFont(new Font("Bookman Old Style", Font.BOLD, 12));
+		lblNewLabel_5.setBounds(501, 235, 40, 32);
 		contentPane.add(lblNewLabel_5);
 
 		JLabel lblNewLabel_6 = new JLabel("Genera el valor del desafío");
-		lblNewLabel_6.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblNewLabel_6.setBounds(229, 10, 256, 46);
+		lblNewLabel_6.setForeground(Color.WHITE);
+		lblNewLabel_6.setFont(new Font("Bookman Old Style", Font.BOLD, 25));
+		lblNewLabel_6.setBounds(163, 21, 380, 46);
 		contentPane.add(lblNewLabel_6);
 
 		JButton btnNewButton_2 = new JButton("Guardar criatura");
+		btnNewButton_2.setBackground(Color.LIGHT_GRAY);
 		btnNewButton_2.setBounds(468, 396, 128, 46);
 		contentPane.add(btnNewButton_2);
 		
 		JComboBox<Object> comboBox_1 = new JComboBox<>();
+		comboBox_1.setBackground(Color.LIGHT_GRAY);
 		comboBox_1.setBounds(242, 82, 216, 66);
 		JComboBox<Object> comboBox_2 = new JComboBox<>();
+		comboBox_2.setBackground(Color.LIGHT_GRAY);
 		comboBox_2.setBounds(242, 158, 216, 66);
 		String item= "";
 		String consulta="";
@@ -213,14 +233,20 @@ public class VDesafio extends JFrame {
 		contentPane.add(comboBox_2);
 		
 		textField_1 = new JTextField();
+		textField_1.setBackground(Color.LIGHT_GRAY);
 		textField_1.setBounds(246, 258, 212, 32);
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
 		
 		JComboBox comboBox = new JComboBox();
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4"}));
-		comboBox.setBounds(501, 264, 46, 21);
+		comboBox.setBounds(495, 264, 46, 21);
 		contentPane.add(comboBox);
+		
+		JLabel lblNewLabel_7 = new JLabel("");
+		lblNewLabel_7.setIcon(new ImageIcon("C:\\Users\\luisj\\Desktop\\img_proyecto_programacion\\desafios.jpg"));
+		lblNewLabel_7.setBounds(0, 0, 717, 554);
+		contentPane.add(lblNewLabel_7);
 		
 	}
 

@@ -22,6 +22,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.ImageIcon;
+import java.awt.SystemColor;
 
 public class VTesoros extends JFrame {
 
@@ -45,7 +47,7 @@ public class VTesoros extends JFrame {
 
     public VTesoros(String nombreUsuario) {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBounds(100, 100, 975, 557);
+        setBounds(100, 100, 968, 547);
         contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         setContentPane(contentPane);
@@ -53,25 +55,28 @@ public class VTesoros extends JFrame {
         
         // Etiqueta de título
         JLabel lblTitle = new JLabel("Generador de botín");
-        lblTitle.setFont(new Font("Arial", Font.PLAIN, 25));
-        lblTitle.setBounds(314, 60, 223, 65);
+        lblTitle.setForeground(Color.WHITE);
+        lblTitle.setFont(new Font("Bookman Old Style", Font.BOLD, 25));
+        lblTitle.setBounds(317, 33, 254, 65);
         contentPane.add(lblTitle);
         
         // Etiqueta para introducir el valor deseado del botín
-        JLabel lblValue = new JLabel("Introduce el valor deseado del botín");
-        lblValue.setFont(new Font("Arial", Font.PLAIN, 15));
-        lblValue.setBounds(21, 196, 254, 39);
+        JLabel lblValue = new JLabel("Valor del botín");
+        lblValue.setForeground(Color.WHITE);
+        lblValue.setFont(new Font("Bookman Old Style", Font.BOLD, 15));
+        lblValue.setBounds(78, 180, 135, 39);
         contentPane.add(lblValue);
         
         // Campo de texto para introducir el valor deseado del botín
         textField = new JTextField();
-        textField.setBounds(57, 230, 163, 39);
+        textField.setBackground(Color.LIGHT_GRAY);
+        textField.setBounds(61, 229, 163, 39);
         contentPane.add(textField);
         textField.setColumns(10);
         
         // Botón "Atrás"
         JButton btnNewButton = new JButton("Atrás");
-        btnNewButton.setBounds(87, 489, 85, 21);
+        btnNewButton.setBounds(97, 411, 85, 21);
         contentPane.add(btnNewButton);
 		btnNewButton.addActionListener(new ActionListener() {
 
@@ -87,16 +92,18 @@ public class VTesoros extends JFrame {
         
         // Botón "Generar botín"
         JButton btnNewButton_1 = new JButton("Generar botín");
+        btnNewButton_1.setBackground(Color.GRAY);
         btnNewButton_1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 generarBotin(); // Llamar al método para generar el botín cuando se hace clic en el botón
             }
         });
-        btnNewButton_1.setBounds(86, 279, 99, 47);
+        btnNewButton_1.setBounds(90, 279, 99, 47);
         contentPane.add(btnNewButton_1);
         
         // Lista para mostrar todos los items disponibles
         listItems = new JList<>();
+        listItems.setBackground(Color.LIGHT_GRAY);
         JScrollPane scrollPaneItems = new JScrollPane(listItems);
         scrollPaneItems.setBounds(277, 156, 309, 202);
         contentPane.add(scrollPaneItems);
@@ -108,6 +115,7 @@ public class VTesoros extends JFrame {
         
         // Lista para mostrar los objetos disponibles
         listBotin = new JList<>();
+        listBotin.setBackground(Color.LIGHT_GRAY);
         JScrollPane scrollPaneBotin = new JScrollPane(listBotin);
         scrollPaneBotin.setBounds(621, 156, 309, 202);
         contentPane.add(scrollPaneBotin);
@@ -118,12 +126,14 @@ public class VTesoros extends JFrame {
         scrollPaneBotin.setHorizontalScrollBar(scrollBarBotin);
         
         JLabel lblNewLabel = new JLabel("Objetos disponibles");
-        lblNewLabel.setFont(new Font("Arial", Font.PLAIN, 15));
-        lblNewLabel.setBounds(361, 113, 147, 29);
+        lblNewLabel.setForeground(Color.WHITE);
+        lblNewLabel.setFont(new Font("Bookman Old Style", Font.BOLD, 15));
+        lblNewLabel.setBounds(361, 113, 172, 29);
         contentPane.add(lblNewLabel);
         
         JLabel lblBotn = new JLabel("Botín");
-        lblBotn.setFont(new Font("Arial", Font.PLAIN, 15));
+        lblBotn.setForeground(Color.WHITE);
+        lblBotn.setFont(new Font("Bookman Old Style", Font.BOLD, 15));
         lblBotn.setBounds(743, 113, 147, 29);
         contentPane.add(lblBotn);
         
@@ -133,20 +143,26 @@ public class VTesoros extends JFrame {
                 limpiarLista(); // Llamar al método para limpiar la lista y el valor total cuando se hace clic en el botón
             }
         });
-        btnNewButton_2.setBounds(832, 368, 98, 47);
+        btnNewButton_2.setBounds(802, 368, 128, 39);
         contentPane.add(btnNewButton_2);
         
         JLabel lblNewLabel_1 = new JLabel("Valor total");
-        lblNewLabel_1.setFont(new Font("Arial", Font.PLAIN, 15));
-        lblNewLabel_1.setBounds(621, 371, 99, 39);
+        lblNewLabel_1.setForeground(Color.WHITE);
+        lblNewLabel_1.setFont(new Font("Bookman Old Style", Font.BOLD, 15));
+        lblNewLabel_1.setBounds(562, 370, 99, 39);
         contentPane.add(lblNewLabel_1);
         
         textField_1 = new JTextField(); // Cambiado textField_1 a variable de instancia
         textField_1.setEditable(false); // Impedir que el usuario pueda escribir en el campo de texto
-        textField_1.setBounds(718, 372, 99, 39);
-        textField_1.setBackground(Color.WHITE); // Fondo blanco
+        textField_1.setBounds(682, 368, 99, 39);
+        textField_1.setBackground(Color.LIGHT_GRAY); // Fondo blanco
         contentPane.add(textField_1);
         textField_1.setColumns(10);
+        
+        JLabel lblNewLabel_2 = new JLabel("");
+        lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\luisj\\Desktop\\img_proyecto_programacion\\tesoros.jpg"));
+        lblNewLabel_2.setBounds(0, 0, 961, 520);
+        contentPane.add(lblNewLabel_2);
 
         // Llamar al método para mostrar los objetos disponibles al iniciar la ventana
         mostrarObjetosDisponibles();

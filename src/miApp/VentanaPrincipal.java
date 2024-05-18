@@ -20,7 +20,7 @@ public class VentanaPrincipal extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private final JLabel lblFondo = new JLabel("New label");
+	private final JLabel lblFondo = new JLabel("");
 
 	/**
 	 * Create the frame.
@@ -29,7 +29,7 @@ public class VentanaPrincipal extends JFrame {
 		setTitle("DUNGEONS & DRAGONS");
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\jose_\\eclipse-workspace\\Ventanas\\dnd.jpg"));
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		setBounds(100, 100, 611, 681);
+		setBounds(100, 100, 604, 672);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -45,7 +45,7 @@ public class VentanaPrincipal extends JFrame {
 
 		JButton btnAtras = new JButton("Atrás");
 		btnAtras.setFont(new Font("Arial", Font.PLAIN, 15));
-		btnAtras.setBounds(451, 583, 136, 51);
+		btnAtras.setBounds(444, 563, 136, 51);
 //		btnAtras.addActionListener(new MiEvento());
 		btnAtras.addActionListener(new ActionListener() {
 
@@ -81,8 +81,8 @@ public class VentanaPrincipal extends JFrame {
 		btnGeneradorDeBotn.setFont(new Font("Arial", Font.PLAIN, 15));
 		btnGeneradorDeBotn.setBounds(307, 365, 204, 51);
 		contentPane.add(btnGeneradorDeBotn);
-		lblFondo.setIcon(new ImageIcon("C:\\Users\\jose_\\Desktop\\Cosas Varias\\de21c37d-f75a-4c7f-b246-b54bee5631bd.jpeg"));
-		lblFondo.setBounds(0, 0, 597, 644);
+		lblFondo.setIcon(new ImageIcon("C:\\Users\\luisj\\Desktop\\img_proyecto_programacion\\Principal.jpg"));
+		lblFondo.setBounds(0, 10, 597, 644);
 		contentPane.add(lblFondo);
 		btnGeneradorDeBotn.addActionListener(new ActionListener() {
 
