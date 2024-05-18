@@ -71,4 +71,25 @@ public class BaseDatos {
 		}
 		
 	}
+	
+	public void adddesafio(String text, String text2) {
+		
+		String sql ="INSERT INTO usuarios (username,password) VALUES(?,?)";
+
+		
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1,text);//definimos el nombreUsuario
+			pstmt.setString(2,text2);//definimos la contraseña
+			
+			int filasinsertadas = pstmt.executeUpdate();
+			System.out.println("Filas insertadas " + filasinsertadas);
+			System.out.println("Usuario creado correctamente");
+		} catch (SQLException ex) {
+			System.out.println(ex.getMessage());
+		}
+		
+	}
+	
+	
 }

@@ -28,8 +28,7 @@ public class VDesafio extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTextField textField_2;
-	private JTextField textField_3;
+	private JTextField textField_d;
 	private Connection conn;
 	private JTextField textField_1;
 
@@ -45,10 +44,10 @@ public class VDesafio extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(76, 422, 57, 46);
-		contentPane.add(textField_2);
+		textField_d = new JTextField();
+		textField_d.setColumns(10);
+		textField_d.setBounds(76, 422, 57, 46);
+		contentPane.add(textField_d);
 
 		JLabel lblNewLabel = new JLabel("Elige el tipo de criatura");
 		lblNewLabel.setBounds(55, 92, 177, 46);
@@ -61,11 +60,6 @@ public class VDesafio extends JFrame {
 		JLabel lblNewLabel_2 = new JLabel("Puntos de vida de la criatura");
 		lblNewLabel_2.setBounds(55, 251, 177, 46);
 		contentPane.add(lblNewLabel_2);
-
-		textField_3 = new JTextField();
-		textField_3.setBounds(468, 259, 96, 32);
-		contentPane.add(textField_3);
-		textField_3.setColumns(10);
 
 		JTextArea textArea = new JTextArea();
 		textArea.setBounds(242, 345, 216, 158);
@@ -94,7 +88,7 @@ public class VDesafio extends JFrame {
 		});
 
 		JLabel lblNewLabel_5 = new JLabel("Total");
-		lblNewLabel_5.setBounds(501, 217, 35, 32);
+		lblNewLabel_5.setBounds(501, 235, 35, 32);
 		contentPane.add(lblNewLabel_5);
 
 		JLabel lblNewLabel_6 = new JLabel("Genera el valor del desafío");
@@ -121,7 +115,6 @@ public class VDesafio extends JFrame {
 		PreparedStatement statement = conn.prepareStatement(consulta);
 		ResultSet resultSet = statement.executeQuery();
 
-		
 		while (resultSet.next()) {
 			
 			item =resultSet.getString("tipo");
@@ -166,7 +159,7 @@ public class VDesafio extends JFrame {
 				
 			}
 		});
-
+		
 		comboBox_2.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -175,11 +168,12 @@ public class VDesafio extends JFrame {
 				String consul2 = "";
 				String item3 = "";
 				String item4 = "";
+				String item5 = "";
 				
 				try {
 					conn = DriverManager.getConnection("jdbc:mariadb://localhost:3306/d&d","root","");
 					
-					consul2 = "SELECT hp,ataque FROM criaturas WHERE nombre = '"+pv+"'";
+					consul2 = "SELECT hp,ataque,vd FROM criaturas WHERE nombre = '"+pv+"'";
 					PreparedStatement statement = conn.prepareStatement(consul2);
 					ResultSet resultSet = statement.executeQuery(); 
 					
@@ -189,6 +183,8 @@ public class VDesafio extends JFrame {
 						textField_1.setText(item3);
 						item4=resultSet.getString("ataque");
 						textArea.setText(item4);
+						item5=resultSet.getString("vd");
+						textField_d.setText(item5);
 						}
 				
 					
@@ -202,9 +198,15 @@ public class VDesafio extends JFrame {
 			}
 		});
 		
-		
+		btnNewButton_2.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				guardardatos();
+				
+			}
+		});
 
-		
 		
 		contentPane.add(comboBox_1);
 		contentPane.add(comboBox_2);
@@ -214,5 +216,18 @@ public class VDesafio extends JFrame {
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
 		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4"}));
+		comboBox.setBounds(501, 264, 46, 21);
+		contentPane.add(comboBox);
+		
 	}
+
+	private void guardardatos() {
+			
+			BaseDatos bbdd = new BaseDatos();
+			bbdd.cerrarDB();
+		}
+		
 }
+
