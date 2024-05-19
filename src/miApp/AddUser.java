@@ -20,6 +20,9 @@ import javax.swing.JButton;
 import java.awt.Color;
 import javax.swing.ImageIcon;
 
+/**
+ * Clase AddUser que proporciona una interfaz gráfica para crear un nuevo usuario.
+ */
 public class AddUser extends JFrame {
 
 	private static final long serialVersionUID = 1L;
@@ -28,9 +31,10 @@ public class AddUser extends JFrame {
 	private JTextField txtPassword;
 	private JTextField txtRepeatPassword;
 
-	/**
-	 * Launch the application.
-	 */
+    /**
+     * Método principal para ejecutar la aplicación.
+     * @param args Argumentos de línea de comandos.
+     */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -45,8 +49,9 @@ public class AddUser extends JFrame {
 	}
 
 	/**
-	 * Create the frame.
-	 */
+     * Constructor de la clase AddUser.
+     * Configura la interfaz gráfica para crear un nuevo usuario.
+     */
 	public AddUser() {
 		setTitle("Create New User");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -146,6 +151,10 @@ public class AddUser extends JFrame {
 		});
 	}
 	
+	/**
+     * Método para validar los datos del usuario antes de guardarlos en la base de datos.
+     * Verifica que el nombre de usuario no esté en blanco y que las contraseñas coincidan.
+     */
 		private void validarUsuario() {
 			
 			if(txtUsuario.getText().isBlank()) {
