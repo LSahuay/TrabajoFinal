@@ -107,7 +107,6 @@ public class VTesoros extends JFrame {
         
         // Botón "Generar botín"
         JButton btnNewButton_1 = new JButton("Generar botín");
-        btnNewButton_1.setBackground(Color.GRAY);
         btnNewButton_1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 generarBotin(); // Llamar al método para generar el botín cuando se hace clic en el botón
