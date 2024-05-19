@@ -13,7 +13,10 @@ import javax.swing.JButton;
 import java.awt.Color;
 import javax.swing.ImageIcon;
 
-
+/**
+ * Clase Login que representa una ventana de inicio de sesión para una aplicación de Dungeons & Dragons.
+ * Extiende JFrame para crear una ventana GUI.
+ */
 public class Login extends JFrame {
 
 	private static final long serialVersionUID = 1L;
@@ -22,15 +25,20 @@ public class Login extends JFrame {
 	private JTextField txtUsername;
 	private JPasswordField txtPassword;
 	private JButton btnLogin;
-	/**
-	 * Launch the application.
-	 */
+	
+	 /**
+     * Método principal que lanza la aplicación.
+     * @param args Argumentos de la línea de comandos (no se utilizan).
+     */
 	public static void main(String[] args) {
 		Login frame = new Login();
 		frame.setVisible(true);
 	}
 
-	
+	/**
+     * Constructor de la clase Login.
+     * Inicializa y configura la ventana de inicio de sesión.
+     */
 	public Login() {
 		setTitle("Login Dungeons & Dragons");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -112,6 +120,10 @@ public class Login extends JFrame {
 	
 	}
 
+	/**
+     * Método que maneja el acceso a la aplicación.
+     * Verifica las credenciales del usuario y, si son correctas, abre la ventana principal.
+     */
 	protected void accederAPP() {
 
 			String password = new String(txtPassword.getPassword());
