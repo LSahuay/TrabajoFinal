@@ -25,6 +25,9 @@ import java.util.List;
 import javax.swing.ImageIcon;
 import java.awt.SystemColor;
 
+/**
+ * La clase VTesoros representa una ventana para generar botín en un juego.
+ */
 public class VTesoros extends JFrame {
 
     private static final long serialVersionUID = 1L;
@@ -35,8 +38,15 @@ public class VTesoros extends JFrame {
     private JTextField textField_1;
     private String usuario;
     private Connection conn;
-
+    
+    
     // Método para establecer la conexión con la base de datos
+    /**
+     * Establece la conexión con la base de datos.
+     *
+     * @return La conexión establecida.
+     * @throws SQLException Si ocurre un error al conectarse a la base de datos.
+     */
     private Connection getConnection() throws SQLException {
         // Configuración de la conexión a la base de datos MySQL
     	conn = DriverManager.getConnection("jdbc:mariadb://localhost:3306/d&d",
@@ -45,6 +55,11 @@ public class VTesoros extends JFrame {
         return conn;
     }
 
+    /**
+     * Crea una nueva instancia de VTesoros.
+     *
+     * @param nombreUsuario El nombre de usuario que ha iniciado sesión.
+     */
     public VTesoros(String nombreUsuario) {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 968, 547);
@@ -169,6 +184,9 @@ public class VTesoros extends JFrame {
     }
     
     // Método para mostrar los objetos disponibles
+    /**
+     * Muestra los objetos disponibles en la lista.
+     */
     private void mostrarObjetosDisponibles() {
         try {
             // Establecer la conexión con la base de datos
@@ -212,6 +230,9 @@ public class VTesoros extends JFrame {
     }
     
     // Método para generar el botín
+    /**
+     * Genera el botín basado en el valor ingresado.
+     */
     private void generarBotin() {
         try {
             // Establecer la conexión con la base de datos
@@ -261,11 +282,20 @@ public class VTesoros extends JFrame {
     }
     
     // Método para limpiar la lista y el valor total
+    /**
+     * Limpia la lista de botín y el valor total.
+     */
     private void limpiarLista() {
         // Limpiar la lista de botín y el campo de valor total
         listBotin.setListData(new String[0]);
         textField_1.setText("");
     }
+    /**
+     * Establece el nombre de usuario.
+     *
+     * @param nombreUsuario El nombre de usuario.
+     * @return El nombre de usuario establecido.
+     */
 	public String setUsuario(String nombreUsuario) {
 		this.usuario=nombreUsuario;
 		return usuario;
