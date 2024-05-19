@@ -26,6 +26,9 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import java.awt.Color;
 
+/**
+ * This class represents the window for managing challenges in a game.
+ */
 public class VDesafio extends JFrame {
 
 	private static final long serialVersionUID = 1L;
@@ -35,9 +38,10 @@ public class VDesafio extends JFrame {
 	private JTextField textField_1;
 	private String usuario;
 
-	/**
-	 * Create the frame.
-	 */
+    /**
+     * Constructs a new VDesafio window.
+     * @param nombreUsuario The name of the user.
+     */
 	public VDesafio(String nombreUsuario) {
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		setBounds(100, 100, 727, 569);
@@ -250,12 +254,20 @@ public class VDesafio extends JFrame {
 		
 	}
 
+    /**
+     * Saves the data of the creature.
+     */
 	private void guardardatos() {
 			
 			BaseDatos bbdd = new BaseDatos();
 			bbdd.cerrarDB();
 		}
 	
+    /**
+     * Sets the username.
+     * @param nombreUsuario The name of the user.
+     * @return The username.
+     */
 	public String setUsuario(String nombreUsuario) {
 		this.usuario=nombreUsuario;
 		
