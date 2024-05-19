@@ -9,10 +9,17 @@ import java.sql.Statement;
 
 import javax.swing.plaf.synth.SynthScrollPaneUI;
 
+/**
+ * Clase BaseDatos que maneja la conexión y las operaciones con la base de datos.
+ */
 public class BaseDatos {
 
 	private Connection conn;
 	
+	 /**
+     * Constructor de la clase BaseDatos.
+     * Establece la conexión con la base de datos MariaDB.
+     */
 	public BaseDatos() {
 		
 		try {
@@ -24,6 +31,12 @@ public class BaseDatos {
 		}
 	}
 	
+	/**
+     * Método para verificar las credenciales de inicio de sesión en la base de datos.
+     * @param user Nombre de usuario.
+     * @param pass Contraseña del usuario.
+     * @return true si las credenciales son correctas, false en caso contrario.
+     */
 	public boolean loginDB (String user, String pass) {
 		boolean loginOK = false;
 		
@@ -43,6 +56,9 @@ public class BaseDatos {
 		return loginOK;
 
 	}
+	/**
+     * Método para cerrar la conexión con la base de datos.
+     */
 	public void cerrarDB() {
 		if(conn != null) {
 			try {
@@ -53,6 +69,11 @@ public class BaseDatos {
 		}
 	}
 
+	/**
+     * Método para agregar un nuevo usuario a la base de datos.
+     * @param username Nombre de usuario.
+     * @param password Contraseña del usuario.
+     */
 	public void addUser(String text, String text2) {
 		
 		String sql ="INSERT INTO usuarios (username,password) VALUES(?,?)";
@@ -72,6 +93,11 @@ public class BaseDatos {
 		
 	}
 	
+	/**
+     * Método para agregar un nuevo desafío a la base de datos.
+     * @param desafio Nombre del desafío.
+     * @param descripcion Descripción del desafío.
+     */
 	public void adddesafio(String text, String text2) {
 		
 		String sql ="INSERT INTO usuarios (username,password) VALUES(?,?)";
