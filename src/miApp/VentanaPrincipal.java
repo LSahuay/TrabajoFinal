@@ -15,7 +15,9 @@ import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
 
-
+/**
+ * Esta clase representa la ventana principal de la aplicación.
+ */
 public class VentanaPrincipal extends JFrame {
 
 	private static final long serialVersionUID = 1L;
@@ -23,8 +25,10 @@ public class VentanaPrincipal extends JFrame {
 	private final JLabel lblFondo = new JLabel("");
 
 	/**
-	 * Create the frame.
-	 */
+     * Constructor de la clase VentanaPrincipal.
+     *
+     * @param nombreUsuario El nombre del usuario que ha iniciado sesión.
+     */
 	public VentanaPrincipal(String nombreUsuario) {
 		setTitle("DUNGEONS & DRAGONS");
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\jose_\\eclipse-workspace\\Ventanas\\dnd.jpg"));
