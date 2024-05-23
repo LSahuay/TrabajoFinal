@@ -52,27 +52,27 @@ public class Login extends JFrame {
 		miPanel.setLayout(null);
 		
 		//Añadimos componentes al panel
-		JLabel lblUsername = new JLabel("Username");
+		JLabel lblUsername = new JLabel("Usuario");
 		lblUsername.setForeground(Color.WHITE);
 		lblUsername.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblUsername.setBounds(162, 117, 120, 41);
 		miPanel.add(lblUsername);
 		
-		JLabel lblPassword = new JLabel("Password");
+		JLabel lblPassword = new JLabel("Contraseña");
 		lblPassword.setForeground(Color.WHITE);
 		lblPassword.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblPassword.setBounds(162, 189, 120, 33);
 		miPanel.add(lblPassword);
 		
 		txtUsername = new JTextField();
-		txtUsername.setBackground(new Color(220, 220, 220));
+		txtUsername.setBackground(new Color(255, 255, 255));
 		txtUsername.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		txtUsername.setToolTipText("Introduce el nombre del usuario");
 		txtUsername.setBounds(162, 159, 251, 20);
 		miPanel.add(txtUsername);
 		
 		txtPassword = new JPasswordField();
-		txtPassword.setBackground(new Color(220, 220, 220));
+		txtPassword.setBackground(new Color(255, 255, 255));
 		txtPassword.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		txtPassword.setToolTipText("Introduce la contraseña");
 		txtPassword.setBounds(162, 222, 251, 20);
@@ -83,7 +83,7 @@ public class Login extends JFrame {
 		btnLogin.setBounds(242, 313, 91, 20);
 		miPanel.add(btnLogin);
 		
-		JButton btnNewButton = new JButton("New usuario");
+		JButton btnNewButton = new JButton("Nuevo usuario");
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		btnLogin.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		btnNewButton.setBounds(231, 269, 112, 21);

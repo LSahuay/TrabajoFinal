@@ -84,14 +84,14 @@ public class VTesoros extends JFrame {
         
         // Campo de texto para introducir el valor deseado del botín
         textField = new JTextField();
-        textField.setBackground(Color.LIGHT_GRAY);
+        textField.setBackground(new Color(255, 255, 255));
         textField.setBounds(61, 229, 163, 39);
         contentPane.add(textField);
         textField.setColumns(10);
         
         // Botón "Atrás"
         JButton btnNewButton = new JButton("Atrás");
-        btnNewButton.setBounds(97, 411, 85, 21);
+        btnNewButton.setBounds(845, 463, 85, 21);
         contentPane.add(btnNewButton);
 		btnNewButton.addActionListener(new ActionListener() {
 
@@ -117,7 +117,7 @@ public class VTesoros extends JFrame {
         
         // Lista para mostrar todos los items disponibles
         listItems = new JList<>();
-        listItems.setBackground(Color.LIGHT_GRAY);
+        listItems.setBackground(new Color(255, 255, 255));
         JScrollPane scrollPaneItems = new JScrollPane(listItems);
         scrollPaneItems.setBounds(277, 156, 309, 202);
         contentPane.add(scrollPaneItems);
@@ -129,7 +129,7 @@ public class VTesoros extends JFrame {
         
         // Lista para mostrar los objetos disponibles
         listBotin = new JList<>();
-        listBotin.setBackground(Color.LIGHT_GRAY);
+        listBotin.setBackground(new Color(255, 255, 255));
         JScrollPane scrollPaneBotin = new JScrollPane(listBotin);
         scrollPaneBotin.setBounds(621, 156, 309, 202);
         contentPane.add(scrollPaneBotin);
@@ -169,7 +169,7 @@ public class VTesoros extends JFrame {
         textField_1 = new JTextField(); // Cambiado textField_1 a variable de instancia
         textField_1.setEditable(false); // Impedir que el usuario pueda escribir en el campo de texto
         textField_1.setBounds(682, 368, 99, 39);
-        textField_1.setBackground(Color.LIGHT_GRAY); // Fondo blanco
+        textField_1.setBackground(new Color(255, 255, 255)); // Fondo blanco
         contentPane.add(textField_1);
         textField_1.setColumns(10);
         

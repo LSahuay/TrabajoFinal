@@ -52,7 +52,7 @@ public class VDesafio extends JFrame {
 		contentPane.setLayout(null);
 
 		textField_d = new JTextField();
-		textField_d.setBackground(Color.LIGHT_GRAY);
+		textField_d.setBackground(new Color(255, 255, 255));
 		textField_d.setColumns(10);
 		textField_d.setBounds(90, 422, 57, 46);
 		contentPane.add(textField_d);
@@ -72,11 +72,11 @@ public class VDesafio extends JFrame {
 		JLabel lblNewLabel_2 = new JLabel("Puntos de vida de la criatura");
 		lblNewLabel_2.setForeground(Color.WHITE);
 		lblNewLabel_2.setFont(new Font("Bookman Old Style", Font.BOLD, 12));
-		lblNewLabel_2.setBounds(55, 251, 486, 46);
+		lblNewLabel_2.setBounds(55, 251, 191, 46);
 		contentPane.add(lblNewLabel_2);
 
 		JTextArea textArea = new JTextArea();
-		textArea.setBackground(Color.LIGHT_GRAY);
+		textArea.setBackground(new Color(255, 255, 255));
 		textArea.setBounds(242, 345, 216, 158);
 		contentPane.add(textArea);
 
@@ -237,13 +237,13 @@ public class VDesafio extends JFrame {
 		contentPane.add(comboBox_2);
 		
 		textField_1 = new JTextField();
-		textField_1.setBackground(Color.LIGHT_GRAY);
+		textField_1.setBackground(new Color(255, 255, 255));
 		textField_1.setBounds(246, 258, 212, 32);
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
 		
 		JComboBox comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4"}));
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"1", "0.75", "0.50", "0.25"}));
 		comboBox.setBounds(495, 264, 46, 21);
 		contentPane.add(comboBox);
 		

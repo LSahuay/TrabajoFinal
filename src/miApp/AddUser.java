@@ -53,7 +53,7 @@ public class AddUser extends JFrame {
      * Configura la interfaz gráfica para crear un nuevo usuario.
      */
 	public AddUser() {
-		setTitle("Create New User");
+		setTitle("Crear nuevo usuario");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 589, 419);
 		miPanel = new JPanel();
@@ -69,16 +69,16 @@ public class AddUser extends JFrame {
 		lblUsername.setBounds(162, 80, 139, 41);
 		miPanel.add(lblUsername);
 		
-		JLabel lblPassword = new JLabel("Password");
+		JLabel lblPassword = new JLabel("Contraseña");
 		lblPassword.setForeground(Color.WHITE);
 		lblPassword.setFont(new Font("Bookman Old Style", Font.BOLD, 14));
 		lblPassword.setBounds(162, 140, 139, 41);
 		miPanel.add(lblPassword);
 		
-		JLabel lblRepeatPassword = new JLabel("RepeatPassword");
+		JLabel lblRepeatPassword = new JLabel("Confirmar contraseña");
 		lblRepeatPassword.setForeground(Color.WHITE);
 		lblRepeatPassword.setFont(new Font("Bookman Old Style", Font.BOLD, 14));
-		lblRepeatPassword.setBounds(162, 199, 187, 36);
+		lblRepeatPassword.setBounds(162, 199, 251, 36);
 		miPanel.add(lblRepeatPassword);
 		
 		txtUsuario = new JTextField();
@@ -112,17 +112,16 @@ public class AddUser extends JFrame {
 		});
 		miPanel.add(btnGuardar);
 		
-		JLabel lblNewUser = new JLabel("Create New User");
+		JLabel lblNewUser = new JLabel("Crear nuevo usuario");
 		lblNewUser.setFont(new Font("Bookman Old Style", Font.BOLD, 20));
 		lblNewUser.setForeground(Color.WHITE);
-		lblNewUser.setBounds(192, 31, 191, 20);
+		lblNewUser.setBounds(180, 35, 214, 20);
 		miPanel.add(lblNewUser);
 		
 
 		
 		JButton btnatras = new JButton("Atras");
-		btnatras.setFont(new Font("Bookman Old Style", Font.PLAIN, 10));
-		btnatras.setBackground(Color.WHITE);
+		btnatras.setFont(new Font("Bookman Old Style", Font.PLAIN, 15));
 		btnatras.setBounds(452, 327, 97, 33);
 		btnatras.addActionListener(new ActionListener() {
 
@@ -137,7 +136,7 @@ public class AddUser extends JFrame {
 		miPanel.add(btnatras);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\luisj\\Desktop\\img_proyecto_programacion\\creaciondym.jpg"));
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\luisj\\eclipse-workspace\\ProyectoFinal\\imagenes\\creaciondym.jpg"));
 		lblNewLabel.setBounds(0, 0, 575, 382);
 		miPanel.add(lblNewLabel);
 		
