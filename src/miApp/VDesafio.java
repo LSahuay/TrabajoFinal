@@ -43,6 +43,7 @@ public class VDesafio extends JFrame {
      * @param nombreUsuario The name of the user.
      */
 	public VDesafio(String nombreUsuario) {
+		setTitle("DUNGEONS & DRAGONS");
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		setBounds(100, 100, 727, 569);
 		contentPane = new JPanel();

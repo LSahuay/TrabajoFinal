@@ -61,6 +61,7 @@ public class VTesoros extends JFrame {
      * @param nombreUsuario El nombre de usuario que ha iniciado sesión.
      */
     public VTesoros(String nombreUsuario) {
+    	setTitle("DUNGEONS & DRAGONS");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 968, 547);
         contentPane = new JPanel();
